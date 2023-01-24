@@ -1,0 +1,586 @@
+<style type="text/css">
+    .cc-modal-wrapper {
+        display: flex;
+        position: relative;
+    }
+
+    .cc-modal-close {
+        position: absolute;
+        top: -25px;
+        right: -25px;
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .cc-modal {
+        position: relative;
+        display: flex;
+        margin: 0 auto;
+        background: #de7e3a;
+        border-radius: 30px;
+    }
+
+    .cc-modal-image {
+        background: white;
+        border-radius: 15px;
+        width: 460px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 5px 1px #999;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .cc-modal-image img {
+        max-width: 100%;
+    }
+
+    .cc-modal-form {
+        color: white;
+        padding-left: 20px;
+        font-size: 18px;
+        padding-bottom: 20px;
+    }
+
+    .cc-modal-corner {
+        width: 250px;
+    }
+
+    .cc-modal-corner img {
+        width: 100%;
+    }
+
+    .cc-modal-form h2 {
+        font-family: Golos, sans-serif;
+        font-size: 41px;
+        margin: 24px 0 0 0;
+    }
+
+    .cc-modal-form ul {
+        font-family: Golos, sans-serif;
+        margin: 20px 0 0 0;
+        padding: 0 0 0 20px;
+    }
+
+    #cc-modal-energy {
+        font-family: Golos, sans-serif;
+    }
+
+    .cc-modal-number-input-wrapper {
+        margin-top: 20px;
+    }
+
+    .cc-modal-form-submit {
+        background-color: #5b7561;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        height: 55px;
+        width: 100%;
+        cursor: pointer;
+        font-family: Roboto Condensed, sans-serif;
+        font-size: 20px;
+        box-sizing: border-box;
+    }
+
+    .cc-modal-form-trial-set {
+        margin: 20px 0;
+        font-size: 24px;
+        font-family: Golos, sans-serif;
+        white-space: nowrap;
+    }
+
+    #cc-modal .cc-modal-form-trial-set > a {
+        color: #FFFF00;
+        text-decoration: underline;
+    }
+
+    .cc-modal-number-input-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .cc-modal-number-input {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-around;
+        background: white;
+        border-radius: 15px;
+        height: 50px;
+        width: 135px;
+        margin-right: 12px;
+        box-shadow: 0 0 5px 1px #999;
+    }
+
+    .cc-modal-number-input button {
+        border-radius: 50%;
+        border: solid #000 2px;
+        background: transparent;
+        font-size: 16px;
+        padding: 0;
+        margin: 0;
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        cursor: pointer;
+        font-family: Golos, sans-serif;
+    }
+
+    .cc-modal-number-input input {
+        width: 60px;
+        border: none;
+        text-align: center;
+        outline: 0;
+        font-size: 28px;
+        font-family: Golos, sans-serif;
+        -moz-appearance: textfield;
+    }
+
+    .cc-modal-number-input input::-webkit-outer-spin-button,
+    .cc-modal-number-input input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .cc-modal-number-input-small {
+        font-size: 18px;
+        font-family: Golos, sans-serif;
+    }
+
+    .t-popup .t-popup__container {
+        background-color: transparent !important;
+    }
+
+
+    @media screen and (max-width: 1200px) {
+        .cc-modal-form {
+            font-size: 16px;
+        }
+        .cc-modal-form h2 {
+            font-size: 41px;
+        }
+        .cc-modal-image {
+            width: 380px;
+        }
+
+        .cc-modal-corner {
+            width: 150px;
+        }
+
+
+        .cc-modal-form-submit {
+            font-size: 18px;
+        }
+        
+        .cc-modal-number-input-small {
+            font-size: 22px;
+        }
+        
+        #cc-popup-total {
+            font-size: 22px;
+            font-family: Golos, sans-serif;
+        }
+    }
+
+    @media screen and (max-width: 960px) {
+        .cc-modal {
+            position: relative;
+        }
+        .cc-modal-form h2 {
+            font-size: 30px;
+            width: 244px;
+        }
+        .cc-modal-form {
+            font-size: 16px;
+            padding-left: 10px;
+            padding-right: 30px;
+        }
+
+        .cc-modal-image {
+            width: 250px;
+        }
+
+        .cc-modal-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 130px;
+        }
+        
+        .cc-modal-form-trial-set {
+            font-size: 20px;
+        }
+
+        .cc-modal-form-submit {
+            font-size: 18px;
+        }
+        
+        .cc-modal-number-input-small {
+            font-size: 20px;
+        }
+        
+        #cc-popup-total {
+            font-size: 20px;
+            font-family: Golos, sans-serif;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .cc-modal-form {
+            font-size: 14px;
+            padding: 10px;
+        }
+        .cc-modal-form h2 {
+            font-size: 28px;
+            width: 228px;
+        }
+        
+        .cc-modal-image {
+            width: 160px;
+        }
+
+        .cc-modal-corner {
+            width: 150px;
+        }
+        
+        .cc-modal-form-trial-set {
+            font-size: 16px;
+        }
+        
+        .cc-modal-form ul {
+        margin: 15px 5px 15px -5px;
+        padding-right: 15px;
+        }
+
+        .cc-modal-form-submit {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .cc-modal-number-input-small {
+            font-size: 14px;
+        }
+
+        #cc-popup-total {
+            font-size: 16px;
+            font-family: Golos, sans-serif;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .cc-modal {
+            width: 100%;
+            display: block;
+        }
+
+        .cc-modal-form {
+            font-size: 13px;
+        }
+
+        .cc-modal-form h2 {
+            font-size: 22px;
+            margin: 0px;
+            padding-top: 26px;
+            padding-bottom: 13px;
+        }
+
+        .cc-modal-form ul {
+            margin: 0;
+        }
+
+        .cc-modal-image {
+            width: 0%;
+            height: 15px;
+        }
+
+        .cc-modal-corner {
+            width: 110px;
+        }
+
+        .cc-modal-form-trial-set {
+            font-size: 16px;
+        }
+
+        .cc-modal-form-submit {
+            padding: 8px;
+            font-size: 16px;
+        }
+        
+        .cc-modal-number-input {
+        width: 105px;
+        margin-right: 6px;
+        }
+        
+        .cc-modal-number-input input {
+        width: 30px;
+        font-size: 20px;
+        }
+        
+        .cc-modal-number-input input {
+        width: 30px;
+        border: none;
+        text-align: center;
+        outline: 0;
+        font-size: 18px;
+        font-family: Golos, sans-serif;
+        -moz-appearance: textfield;
+        }
+
+        .cc-modal-number-input-small {
+            font-size: 14px;
+        }
+        
+
+        #cc-popup-total {
+            font-size: 18px;
+            font-family: Golos, sans-serif;
+        }
+    }
+</style>
+<script type="text/javascript">
+    const products = [
+        {
+            sku: "turkey",
+            name: "Индейка",
+            pricePerPack: 299,
+            nutritionFacts: [
+                "индейка, бедро: 48%",
+                "кролик, филе: 41,4%",
+                "цукини: 6,4%",
+                "рыбий жир: 0,6%",
+                "питательные вещества: 3,8%",
+            ],
+            energy: "Обменная энергия: 132 ккал/100г",
+            image: "https://i.ibb.co/kcLLg3p/image.png"
+        },
+        {
+            sku: "nutria",
+            name: "Нутрия",
+            pricePerPack: 299,
+            nutritionFacts: [
+                "нутрия, филе: 89,2%",
+                "огурец: 6,4%",
+                "рыбий жир: 0,6%",
+                "питательные вещества: 3,8%",
+            ],
+            energy: "Обменная энергия: 150 ккал/100г",
+            image: "https://i.ibb.co/0tmjH7L/image.png"
+        },
+        {
+            sku: "rabbit",
+            name: "Кролик",
+            pricePerPack: 299,
+            nutritionFacts: [
+                "кролик, филе: 89,2%",
+                "болгарский перец: 6,4%",
+                "рыбий жир: 0,7%",
+                "питательные вещества: 3,8%",
+            ],
+            energy: "Обменная энергия: 143 ккал/100г",
+            image: "https://i.ibb.co/q5NBMPL/image.png"
+        },
+        {
+            sku: "veal",
+            name: "Телятина",
+            pricePerPack: 299,
+            nutritionFacts: [
+                "телятина, мясо: 73,2%",
+                "сердце теленка: 19,1%",
+                "морковь: 3,3%",
+                "рыбий жир: 0,6%",
+                "питательные вещества: 3,8%",
+            ],
+            energy: "Обменная энергия: 123 ккал/100г",
+            image: "https://i.ibb.co/mC8XZVf/image.png"
+        },
+        {
+            sku: "pink_salmon",
+            name: "Горбуша",
+            pricePerPack: 299,
+            nutritionFacts: [
+                "горбуша, филе: 89,2%",
+                "тыква: 6,4%",
+                "подсолнечное масло: 0,6%",
+                "питательные вещества: 3,8%",
+            ],
+            energy: "Обменная энергия: 144 ккал/100г",
+            image: "https://i.ibb.co/P9V4WG9/image.png"
+        },
+        {
+            sku: "assorted",
+            name: "Мясное ассорти",
+            pricePerPack: 299,
+            nutritionFacts: [
+                "говяжий антрекот и сердце: 51%",
+                "куриная грудка: 35%",
+                "тыква: 9,5%",
+                "рыбий жир: 0,7%",
+                "питательные вещества: 3,8%",
+            ],
+            energy: "Обменная энергия: 134 ккал/100г",
+            image: "https://i.ibb.co/tzdbZ90/image.png"
+        },
+    ];
+
+    const findBySku = (name) => products.find(({sku}) => sku === name);
+
+    window.ccPopup = {
+        n: 1,
+        discounts: [
+            [7, 0.9665],
+        ],
+    };
+    ccPopupUpdate = () => {
+        const {n, discounts, target} = window.ccPopup;
+        const {name, pricePerPack, energy, nutritionFacts, image} = findBySku(target);
+        const total = n * pricePerPack;
+        let discount = 1;
+        for (const [q, d] of discounts) {
+            if (n > q) discount = d;
+        }
+        document.getElementById("cc-modal-h2").textContent = name;
+        document.getElementById("cc-modal-energy").textContent = energy;
+        document.getElementById("cc-modal-image").src = image;
+        document.getElementById("cc-modal-nutrition-facts").innerHTML = ''
+        for (const fact of nutritionFacts) {
+            const c = document.createElement('li');
+            c.innerHTML = fact;
+            document.getElementById("cc-modal-nutrition-facts").appendChild(c);
+        }
+        document.getElementById("cc-popup-n").value = n;
+        document.getElementById("cc-popup-total").textContent = Math.round(
+            n * pricePerPack * discount
+        );
+        document.getElementById("cc-popup-price-per-pack").textContent =
+            Math.round(pricePerPack * discount);
+        pricePerPack;
+    };
+    window.ccPopupInc = () => {
+        window.ccPopup.n = window.ccPopup.n + 1;
+        ccPopupUpdate();
+    };
+    window.ccPopupDec = () => {
+        if (window.ccPopup.n > 1) {
+            window.ccPopup.n = window.ccPopup.n - 1;
+            ccPopupUpdate();
+        }
+    };
+    window.ccPopup.submit = (e) => {
+        const {name, pricePerPack, image, energy, nutritionFacts} = findBySku(window.ccPopup.target);
+        let {n} = window.ccPopup;
+        debugger;
+
+
+        while (n) {
+            window.tcart__addProduct({
+                name,
+                price: pricePerPack,
+                img: image,
+                url: "https://catcuisine.ru/",
+            });
+            n--;
+        }
+        window.ccPopup.n = 1;
+        t868_closePopup(
+            document.getElementById(
+                document.getElementById("cc-modal").parentElement.parentElement
+                    .parentElement.parentElement.parentElement.id
+            )
+        );
+    };
+    const oldPopupShow = window.t868_showPopup;
+    window.t868_showPopup = function () {
+        oldPopupShow(...arguments);
+        window.ccPopupUpdate();
+    };
+    window.addEventListener("load", () => {
+        document.getElementById("cc-modal-close").addEventListener("click", () => {
+            t868_closePopup(
+                document.getElementById(
+                    document.getElementById("cc-modal").parentElement.parentElement
+                        .parentElement.parentElement.parentElement.id
+                )
+            );
+        });
+        document.querySelectorAll('a').forEach(element => {
+            if (element.href.indexOf('#item-details:') >= 0) {
+                element.addEventListener("click", e => {
+                    e.preventDefault();
+                    window.ccPopup.target = element.href.match(/#item-details:(.*)/)[1]
+                    window.t868_showPopup(document.getElementById(
+                        document.getElementById("cc-modal").parentElement.parentElement
+                            .parentElement.parentElement.parentElement.id
+                    ));
+                })
+            }
+        })
+    });
+    window.addTrialSet = function (event) {
+        event.preventDefault();
+        window.tcart__addProduct({
+            name: "Welcome-сет (6 пакетов по 160 г)",
+            price: 1690,
+            img: 'https://i.postimg.cc/dVSVNvYf/probnii-nabor.webp',
+            url: 'https://catcuisine.ru/'
+        });
+        return false;
+    }
+</script>
+<div class="cc-modal-wrapper" id="cc-modal">
+    <div class="cc-modal">
+        <div id="cc-modal-close" class="cc-modal-close">
+            <svg width="50" height="50" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.2103 5.68944L13.7874 13.2099M6.23875 13.2381L13.7589 5.66128M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z"
+                      stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+        </div>
+        <div class="cc-modal-image">
+            <img id="cc-modal-image">
+        </div>
+        <div class="cc-modal-form">
+            <h2 id="cc-modal-h2">Кролик</h2>
+            <ul id="cc-modal-nutrition-facts">
+                <li>кролик, филе: 89,2%</li>
+                <li>болгарский перец: 6,4%</li>
+                <li>рыбий жир: 0,7%</li>
+                <li>питательные вещества: 3,8%</li>
+            </ul>
+            <div id="cc-modal-energy">Обменная энергия: 143 ккал/100 г</div>
+            <div class="cc-modal-number-input-wrapper">
+                <div class="cc-modal-number-input">
+                    <button onClick="window.ccPopupDec()">-</button>
+                    <input
+                            id="cc-popup-n"
+                            max="999"
+                            min="0"
+                            type="number"
+                            value="1"
+                    />
+                    <button onClick="window.ccPopupInc()">+</button>
+                </div>
+                <span id="cc-popup-total">286</span><span>₽</span>
+                &nbsp;
+                <span class="cc-modal-number-input-small">(</span>
+                <span id="cc-popup-price-per-pack" class="cc-modal-number-input-small">286₽</span>
+                <span class="cc-modal-number-input-small">/шт)</span>
+            </div>
+            <br/>
+            <button class="cc-modal-form-submit" onClick="window.ccPopup.submit()">
+                ДОБАВИТЬ В КОРЗИНУ
+            </button>
+            <div class="cc-modal-form-trial-set">или закажи <a href="#" onclick="window.addTrialSet(event);">Welcome-сет</a></div>
+        </div>
+        <div class="cc-modal-corner">
+            <img src="https://i.ibb.co/T2Y8TLJ/corner.png">
+        </div>
+    </div>
+</div>
